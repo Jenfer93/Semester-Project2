@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "bootstrap": "^5.2.2"
-  }
+  },
+  "name": "semester-project2",
+  "description": "A auction house - created with the NorOff Api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jenfer93/Semester-Project2.git"
+  },
+  "author": "Jenny Feragen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jenfer93/Semester-Project2/issues"
+  },
+  "homepage": "https://github.com/Jenfer93/Semester-Project2#readme"
 }
