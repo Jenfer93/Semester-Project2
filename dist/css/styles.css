@@ -10771,6 +10771,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  max-width: 1500px;
+  margin: auto;
+}
+
 .form {
   max-width: 25rem;
 }
