@@ -1,0 +1,29 @@
+$primary:       #0D0D0D ;
+$secondary:     #404040 ;
+$success:       #165B42 ;
+$info:          #165B42;
+$warning:       #990B00;
+$danger:        #990B00 ;
+$light:         #F0F0F0;
+$dark:          #0D0D0D ;
+
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+$link-color:         $light;
+
+$border-color:       $dark ;
+
+$font-family-sans-serif: Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+
