@@ -3,13 +3,10 @@
   "description": "A auction house - created with the NorOff Api",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {
-    "sass": "^1.56.1"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",
-    "watch": "sass --watch src/scss:dist/css"
+    "watch": "sass --watch src/scss:dist/css & live-server"
   },
   "repository": {
     "type": "git",
@@ -21,6 +18,10 @@
     "url": "https://github.com/Jenfer93/Semester-Project2/issues"
   },
   "homepage": "https://github.com/Jenfer93/Semester-Project2#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.56.1"
+  },
   "dependencies": {
     "bootstrap": "^5.2.2"
   }
