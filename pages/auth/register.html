@@ -29,8 +29,32 @@
     </div>
   </nav>
 </header>
-<main class="flex-shrink-0">
-
+<main class="flex-shrink-0 m-lg-5 m-4">
+  <h1 class="m-4 text-center">Register to BidOnMe</h1>
+  <form class="form m-auto p-3">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="name" class="form-control bg-secondary text-light" aria-describedby="nameHelp"  title="You only use _ as a special character to separate word, and no numbers">
+      <div id="nameHelp" class="form-text">Enter your name</div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control bg-secondary text-light" aria-describedby="emailHelp" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Email must be a @noroff.no or @stud.noroff.no">
+      <div id="emailHelp" class="form-text">You need a stud.noroff.no or noroff.no email to log in</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control bg-secondary text-light" aria-describedby="passwordHelp" required minlength="8" title="Password must be at least 8 characters long">
+      <div id="passwordHelp" class="form-text">You need at least 8 characters</div>
+    </div>
+    <div class="mb-3">
+      <label for="avatar" class="form-label">Avatar</label>
+      <input type="url" name="avatar" class="form-control bg-secondary text-light" aria-describedby="avatarHelp" required title="Fill in an url for your avatar">
+      <div id="avatarHelp" class="form-text">You need to fill in an URL for your avatar</div>
+    </div>
+    <button type="submit" class="btn btn-success m-auto">Register</button>
+    <p class="muted mt-2">Already have an account? <a href="login.html">Login here</a></p>
+  </form>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
