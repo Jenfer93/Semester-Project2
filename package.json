@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "bootstrap": "^5.2.2"
-  },
   "name": "semester-project2",
   "description": "A auction house - created with the NorOff Api",
   "version": "1.0.0",
@@ -23,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Jenfer93/Semester-Project2/issues"
   },
-  "homepage": "https://github.com/Jenfer93/Semester-Project2#readme"
+  "homepage": "https://github.com/Jenfer93/Semester-Project2#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
 }
