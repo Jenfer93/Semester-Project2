@@ -8,7 +8,7 @@
   <title>BidOnMe</title>
   <link rel="stylesheet" href="/dist/css/styles.css">
 </head>
-<body class="bg-dark text-light">
+<body class="bg-dark text-light d-flex flex-column h-100">
 <header>
   <nav class="navbar sticky-top navbar-expand-lg bg-secondary">
     <div class="container-fluid">
@@ -22,7 +22,7 @@
             <a class="nav-link text-light active" aria-current="page" href="/pages/user/profile.html">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/pages/items/listitems.html">All Listings</a>
+            <a class="nav-link text-light" href="/index.html">All Listings</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/pages/items/createitem.html">Create Listing</a>
@@ -38,15 +38,13 @@
     </div>
   </nav>
 </header>
-<main>
+<main class="flex-shrink-0">
 
 </main>
-<div class="bg-secondary">
-  <footer class="py-3 my-4">
+  <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
     <p class="text-center text-light">© 2022 BidOnMe</p>
   </footer>
-</div>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
