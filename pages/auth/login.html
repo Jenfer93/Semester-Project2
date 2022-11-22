@@ -29,8 +29,22 @@
     </div>
   </nav>
 </header>
-<main class="flex-shrink-0">
-
+<main class="flex-shrink-0 m-lg-5 m-4">
+  <h1 class="m-4 text-center">Login</h1>
+  <form class="form m-auto p-3">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control bg-secondary text-light" aria-describedby="emailHelp" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Email must be a @noroff.no or @stud.noroff.no">
+      <div id="emailHelp" class="form-text">You need a stud.noroff.no or noroff.no email to log in</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control bg-secondary text-light" aria-describedby="passwordHelp" required minlength="8" title="Password must be at least 8 characters long">
+      <div id="passwordHelp" class="form-text">You need at least 8 characters</div>
+    </div>
+    <button type="submit" class="btn btn-success m-auto">Login</button>
+    <p class="muted mt-2">Don't have an account? <a href="register.html">Register here</a></p>
+  </form>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
