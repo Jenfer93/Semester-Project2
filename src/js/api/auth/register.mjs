@@ -22,5 +22,5 @@ export async function register(profile) {
   })
 
   const results = await response.json()  
-  return results
+  return results  
 };

@@ -34,12 +34,12 @@
   <form class="form m-auto p-3" id="login-form">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control bg-secondary text-light" aria-describedby="emailHelp" required pattern="^[\w\-.]+@stud.?noroff.no$" title="Email must be a @stud.noroff.no email">
+      <input type="email" name="email" class="form-control bg-secondary text-light" aria-describedby="emailHelp" required pattern="^[\w\-.]+@stud.?noroff.no$" title="Email must be a @stud.noroff.no email">
       <div id="emailHelp" class="form-text">You need a stud.noroff.no email to log in</div>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control bg-secondary text-light" aria-describedby="passwordHelp" required minlength="8" title="Password must be at least 8 characters long">
+      <input type="password" name="password" class="form-control bg-secondary text-light" aria-describedby="passwordHelp" required minlength="8" title="Password must be at least 8 characters long">
       <div id="passwordHelp" class="form-text">You need at least 8 characters</div>
     </div>
     <button type="submit" class="btn btn-success m-auto">Login</button>
@@ -51,5 +51,6 @@
     <p class="text-center text-light">© 2022 BidOnMe</p>
   </footer>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/src/js/index.mjs"></script>
 </body>
 </html>
