@@ -1,6 +1,6 @@
 import { API_URL } from "../constants.mjs";
 
-const action = "/auth/auction/register"; 
+const action = "/auth/register"; 
 const method = "post";
 
 /**
