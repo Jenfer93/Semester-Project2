@@ -2,7 +2,7 @@ import * as listeners from "../js/handlers/index.mjs";
 import * as listings from "../js/api/items/index.mjs";
 
 const path = location.pathname;
-listeners.logoutListener();
+//listeners.logoutListener();
 
 if (path === "/pages/auth/login.html") {
   listeners.loginUserForm(); 
@@ -10,9 +10,7 @@ if (path === "/pages/auth/login.html") {
   listeners.registerUserForm(); 
 } else if (path === "/index.html"){
   listings.showListings();
+} else if (path === "/pages/items/item.html"){
+  listings.showListing();
 }
-
-
-
-
 

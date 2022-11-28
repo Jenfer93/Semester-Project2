@@ -57,3 +57,16 @@ const moreListings = "&limit=500";
   }
 }
 
+  /**
+ * Function that shows a single listing
+ */
+
+   export async function showListing(){ 
+    const queryString = document.location.search;
+    const params = new URLSearchParams(queryString);
+    const id = params.get("id");
+
+   const listing = await viewListing(id); 
+   const singleListingContainer = document.querySelector("#singleListing");
+   templates.renderListingTemplate(listing, singleListingContainer)
+  } 

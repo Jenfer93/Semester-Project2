@@ -116,3 +116,67 @@ export function listingTemplate(listingData){
  export function renderUnAuthListingTemplates(listingDataList, parent) {
   parent.append(...listingDataList.map(UnAuthListingTemplate))
 }
+
+
+
+
+
+/**
+ * Makes the HTML for a single listing 
+ */
+
+export function singleListingTemplate(listingData){
+  const { author, id, title, description } = listingData;
+  //const { avatar } = author; 
+
+  const pageHeader = document.querySelector(".pageHeader");
+  const path = location.pathname
+  if (path === "/pages/items/item.html") {
+    pageHeader.innerText = title;
+  } 
+
+  const listingMedia = document.createElement ("img");
+  listingMedia.src = listingData.media;
+  listingMedia.classList = "w-50 m-auto align-self-center"
+
+  const listingEnds = document.createElement("p");
+  listingEnds.innerHTML = `Closes at <br> ${endsAt}`;
+
+  const listingDescription = document.createElement ("div");
+  listingDescription.classList = "bg-secondary p-3 w-50";
+
+  const descriptionText = document.createElement ("p");
+  descriptionText.innerText = description;
+
+  const listingInformation = document.createElement ("div");
+  listingInformation.classList = "p-3 w-50";
+  
+  const bidH2 = document.createElement ("h2");
+  bidH2.innerText = "Current Bid";
+
+  const lastBid = document.createElement ("button");
+  lastBid.classList = "btn btn-success btn-small";
+  lastBid.innerText = `${bids}`
+
+  const bidH3 = document.createElement ("h3");
+  bidH3.innerText = "Make a bid";
+
+  const bidInput = document.createElement ("input");
+  bidInput.classList = "form-control bg-secondary text-light"
+
+  const placeBidButton = document.createElement("button");
+  placeBidButton.classList = "btn btn-success btn-small";
+  placeBidButton.innerText = "Place bid";
+
+  listingInformation.append(bidH2, lastBid, bidH3, bidInput, placeBidButton)
+
+}
+
+/**
+ * Displays the single post 
+ * @param {string} listingData 
+ * @param {string} parent 
+ */
+ export function renderListingTemplate(listingData, parent) {
+  parent.append(singleListingTemplate(listingData))
+}
