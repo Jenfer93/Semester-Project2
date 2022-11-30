@@ -67,6 +67,6 @@ const moreListings = "&limit=500";
     const id = params.get("id");
 
    const listing = await viewListing(id); 
-   const singleListingContainer = document.querySelector("#singleListing");
+   const singleListingContainer = document.querySelector("#container");
    templates.renderListingTemplate(listing, singleListingContainer)
   } 

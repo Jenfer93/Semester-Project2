@@ -25,7 +25,10 @@ body {
   padding: 0rem 0.8rem;
 }
 
-.card {
+.card, .itemImage {
   width: 20rem;
 }
 
+.list {
+  max-width: 800px;
+}

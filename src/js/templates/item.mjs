@@ -68,8 +68,6 @@ export function listingTemplate(listingData){
 
 
  export function UnAuthListingTemplate(listingData){
-  const { author, id, endsAt } = listingData;
-  //const { name, avatar } = author;
 
   //Listing card
   const card = document.createElement("a");
@@ -126,50 +124,71 @@ export function listingTemplate(listingData){
  */
 
 export function singleListingTemplate(listingData){
-  const { author, id, title, description } = listingData;
-  //const { avatar } = author; 
+  const { id, title, description, endsAt, bids, media } = listingData;
 
   const pageHeader = document.querySelector(".pageHeader");
-  const path = location.pathname
-  if (path === "/pages/items/item.html") {
-    pageHeader.innerText = title;
-  } 
+  pageHeader.innerText = title;
+  pageHeader.classList = "m-auto text-center mt-5"
+   
+  const listingContainer = document.createElement("div");
+  listingContainer.classList = "list d-flex flex-wrap m-auto p-3 justify-content-around";
 
-  const listingMedia = document.createElement ("img");
-  listingMedia.src = listingData.media;
-  listingMedia.classList = "w-50 m-auto align-self-center"
+  const containerImgEnds = document.createElement("div");
+  containerImgEnds.classList = "d-flex flex-column justify-content-center"
+
+  const imgContainer = document.createElement("div");
+  imgContainer.classList = "itemImage m-auto d-flex flex-column"
+  
+
+  if(media){
+    for(let i = 0; i < media.length; i++){
+    const listingMedia = document.createElement ("img");
+    listingMedia.src = media[i];
+    listingMedia.classList = "w-100 pb-2";
+    imgContainer.append(listingMedia)
+    }
+}
 
   const listingEnds = document.createElement("p");
   listingEnds.innerHTML = `Closes at <br> ${endsAt}`;
+  listingEnds.classList = "m-auto text-center"
 
-  const listingDescription = document.createElement ("div");
-  listingDescription.classList = "bg-secondary p-3 w-50";
-
-  const descriptionText = document.createElement ("p");
-  descriptionText.innerText = description;
+  containerImgEnds.append(imgContainer, endsAt)
 
   const listingInformation = document.createElement ("div");
-  listingInformation.classList = "p-3 w-50";
+  listingInformation.classList = "p-3 m-auto";
+
+  const listingDescription = document.createElement ("div");
+  listingDescription.classList = "bg-secondary p-3 m-auto mb-3";
+  listingDescription.innerText  = "Description:"
+
+  const descriptionText = document.createElement("p");
+  descriptionText.innerText = description;
+
+  listingDescription.append(descriptionText);
   
   const bidH2 = document.createElement ("h2");
   bidH2.innerText = "Current Bid";
 
   const lastBid = document.createElement ("button");
-  lastBid.classList = "btn btn-success btn-small";
-  lastBid.innerText = `${bids}`
+  lastBid.classList = "btn btn-success btn-small mb-3";
+  lastBid.innerHTML = `${bids}`
 
   const bidH3 = document.createElement ("h3");
   bidH3.innerText = "Make a bid";
 
   const bidInput = document.createElement ("input");
-  bidInput.classList = "form-control bg-secondary text-light"
+  bidInput.classList = "form-control bg-secondary text-light mb-2"
 
   const placeBidButton = document.createElement("button");
   placeBidButton.classList = "btn btn-success btn-small";
   placeBidButton.innerText = "Place bid";
 
-  listingInformation.append(bidH2, lastBid, bidH3, bidInput, placeBidButton)
+  listingInformation.append(listingDescription, lastBid, bidH3, bidInput, placeBidButton)
 
+  listingContainer.append(containerImgEnds, listingInformation);
+
+  return listingContainer
 }
 
 /**
