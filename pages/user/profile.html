@@ -39,12 +39,38 @@
   </nav>
 </header>
 <main class="flex-shrink-0">
-
+<div class="container m-auto d-flex justify-content-around flex-wrap">
+  <div class=" d-flex flex-column m-4">
+    <h1 id="userName" class="mb-5 m-auto"></h1>
+    <img class="avatar mb-2" src="#" alt="Profile picture">
+    <a href="./editavatar.html">Change avatar</a>
+  </div>
+  <div class="m-4 d-flex flex-column justify-content-center">
+    <button class="btn btn-success" href="../items/createitem.html">List an Item</button>
+    <div class="bg-secondary p-3 m-4 card">
+      <h3 class="mb-3"> Credits: <span class="credits"></span></h3>
+      <h3> Bids: <span class="nrBids"></span></h3>
+    </div>
+  </div> 
+</div>
+<div class="container listings list d-flex flex-column">
+  <div class="current">
+    <h4>Current Listings</h4>
+    <div class="d-flex">
+      <div class="small-card bg-secondary">
+      <img class="mb-2 card-img-top listingImg" src="#" alt="listings picture">
+      <button class="btn btn-small btn-success"></button>
+      <span class="endsAt"></span>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
     <p class="text-center text-light">© 2022 BidOnMe</p>
   </footer>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/src/js/index.mjs"></script>
 </body>
 </html>

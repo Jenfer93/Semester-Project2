@@ -124,7 +124,7 @@ export function listingTemplate(listingData){
  */
 
 export function singleListingTemplate(listingData){
-  const { id, title, description, endsAt, bids, media } = listingData;
+  const { id, title, description, endsAt, _count, media } = listingData;
 
   const pageHeader = document.querySelector(".pageHeader");
   pageHeader.innerText = title;
@@ -172,7 +172,7 @@ export function singleListingTemplate(listingData){
 
   const lastBid = document.createElement ("button");
   lastBid.classList = "btn btn-success btn-small mb-3";
-  lastBid.innerHTML = `${bids}`
+  lastBid.innerHTML = `${_count.bids[0]}`
 
   const bidH3 = document.createElement ("h3");
   bidH3.innerText = "Make a bid";
