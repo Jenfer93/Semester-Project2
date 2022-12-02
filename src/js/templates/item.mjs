@@ -5,7 +5,7 @@
 
 
 export function listingTemplate(listingData){
-  const { author, id, endsAt } = listingData;
+  const { title, media, author, id, endsAt, bids } = listingData;
   //const { name, avatar } = author;
 
   //Listing card
@@ -21,26 +21,39 @@ export function listingTemplate(listingData){
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
   cardMedia.classList = "w-75 m-auto align-self-center";
-  cardMedia.src = listingData.media;
+  
+ if (media === []){
+   cardMedia.src = "https://picsum.photos/id/136/367/267";
+  } else {
+   cardMedia.src = media[0];
+   cardMedia.alt = "Listing Img";
+ }
 
   const listingTitle = document.createElement("h4");
   listingTitle.classList = "m-auto text-center mt-2";
-  listingTitle.innerText = listingData.title;
+  listingTitle.innerText = title;
   cardHeading.append(cardMedia, listingTitle); 
 
 
   //Card bottom 
   const cardBottom = document.createElement("div");
-  cardBottom.classList = "d-flex justify-content-between";
+  cardBottom.classList = "d-flex justify-content-around";
 
   //the content in the second half of card
   const lastBid = document.createElement("button");
   lastBid.classList = "btn btn-success btn-small";
-  lastBid.innerText = listingData.bids;
+    lastBid.innerText = "Start biding"
+  
+  if(bids) { 
+    for (var i = 0; i < bids.length; i++){
+    lastBid.classList = "btn btn-success btn-small";
+    lastBid.innerText = bids[i].amount;
+  }
+  }
 
 
   const listingEnds = document.createElement("p");
-  listingEnds.innerText = `closes at ${endsAt}`;
+  listingEnds.innerHTML = "Closes at:" + `<br>` + new Date(endsAt).toLocaleDateString();
 
   cardBottom.append(lastBid, listingEnds);
 
@@ -124,7 +137,7 @@ export function listingTemplate(listingData){
  */
 
 export function singleListingTemplate(listingData){
-  const { id, title, description, endsAt, _count, media } = listingData;
+  const { id, title, description, endsAt, bids, media } = listingData;
 
   const pageHeader = document.querySelector(".pageHeader");
   pageHeader.innerText = title;
@@ -150,8 +163,8 @@ export function singleListingTemplate(listingData){
 }
 
   const listingEnds = document.createElement("p");
-  listingEnds.innerHTML = `Closes at <br> ${endsAt}`;
-  listingEnds.classList = "m-auto text-center"
+  listingEnds.innerHTML = listingEnds.innerHTML = "Closes at:" + `<br>` + new Date(endsAt).toLocaleDateString();;
+  listingEnds.classList = "m-auto text-uppercase"
 
   containerImgEnds.append(imgContainer, endsAt)
 
@@ -170,9 +183,16 @@ export function singleListingTemplate(listingData){
   const bidH2 = document.createElement ("h2");
   bidH2.innerText = "Current Bid";
 
-  const lastBid = document.createElement ("button");
-  lastBid.classList = "btn btn-success btn-small mb-3";
-  lastBid.innerHTML = `${_count.bids[0]}`
+  const lastBid = document.createElement("button");
+  lastBid.classList = "btn btn-success btn-small";
+    lastBid.innerText = "Start biding"
+  
+  if(bids) { 
+    for (var i = 0; i < bids.length; i++){
+    lastBid.classList = "btn btn-success btn-small";
+    lastBid.innerText = bids[i].amount;
+  }
+  }
 
   const bidH3 = document.createElement ("h3");
   bidH3.innerText = "Make a bid";

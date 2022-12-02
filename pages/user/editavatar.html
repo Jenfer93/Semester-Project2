@@ -39,12 +39,19 @@
   </nav>
 </header>
 <main class="flex-shrink-0">
-
+  <div class="d-inline-flex flex-column m-4">
+    <h1 id="userName" class="mb-5 m-auto"></h1>
+    <img class="avatar mb-2" src="#" alt="Profile picture">
+    <h2>Change Avatar</h2>
+    <input id="form-avatar" class="form-control bg-secondary text-light" type="url">
+    <button href="#" class="btn btn-success">Change avatar</button>
+  </div>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
     <p class="text-center text-light">© 2022 BidOnMe</p>
   </footer>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/src/js/index.mjs"></script>
 </body>
 </html>

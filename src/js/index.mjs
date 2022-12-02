@@ -15,5 +15,8 @@ if (path === "/pages/auth/login.html") {
   listings.showListing();
 } else if (path === "/pages/user/profile.html"){
   profile.profileInfo();
-}
+} 
+// else if (path === "/pages/user/editavatar.html"){
+//   listeners.editAvatarListener();
+// }
 
