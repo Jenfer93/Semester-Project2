@@ -18,4 +18,6 @@ if (path === "/pages/auth/login.html") {
   profile.editAvatarRedirect();
 } else if (path === "/pages/user/editavatar.html"){
   listeners.editAvatarListener();
+} else if (path === "/pages/items/createitem.html") {
+  listeners.createListingListener();
 }

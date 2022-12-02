@@ -20,13 +20,13 @@ export function listingTemplate(listingData){
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
   cardMedia.classList = "w-75 m-auto align-self-center";
+  cardMedia.src = "https://picsum.photos/id/136/367/267";
+
+ if (media){
+  cardMedia.src = media[0];
+  cardMedia.alt = "Listing Img";
   
- if (media === []){
-   cardMedia.src = "https://picsum.photos/id/136/367/267";
-  } else {
-   cardMedia.src = media[0];
-   cardMedia.alt = "Listing Img";
- }
+  } 
 
   const listingTitle = document.createElement("h4");
   listingTitle.classList = "m-auto text-center mt-2";
@@ -162,10 +162,10 @@ export function singleListingTemplate(listingData){
 }
 
   const listingEnds = document.createElement("p");
-  listingEnds.innerHTML = listingEnds.innerHTML = "Closes at:" + `<br>` + new Date(endsAt).toLocaleDateString();;
+  listingEnds.innerHTML = "Closes at:" + `<br>` + new Date(endsAt).toLocaleDateString();
   listingEnds.classList = "m-auto text-uppercase"
 
-  containerImgEnds.append(imgContainer, endsAt)
+  containerImgEnds.append(imgContainer, listingEnds)
 
   const listingInformation = document.createElement ("div");
   listingInformation.classList = "p-3 m-auto";
