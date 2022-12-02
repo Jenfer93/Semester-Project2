@@ -16,7 +16,6 @@ if (path === "/pages/auth/login.html") {
 } else if (path === "/pages/user/profile.html"){
   profile.profileInfo();
   profile.editAvatarRedirect();
-
 } else if (path === "/pages/user/editavatar.html"){
   listeners.editAvatarListener();
 }

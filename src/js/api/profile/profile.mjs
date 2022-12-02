@@ -30,21 +30,25 @@ export async function profileInfo() {
 const userName = document.querySelector("#userName");
 const userAvatar = document.querySelector(".avatar");
 const userCredits = document.querySelector(".credits");
-const userBids = document.querySelector(".nrBids");
+const userListings = document.querySelector(".nrListings");
 const listingImg = document.querySelector(".listingImg");
+const currentListings = document.querySelector("#currentListings");
 
 const userData = load("profile");
 const { name, credits} = userData;
 const avatar = load("avatar");
-const bidCount = load("_count");
+const listingCount = load("_count");
 
 userName.innerText = name; 
 userAvatar.src = avatar; 
 userCredits.innerText = credits;
-if(bidCount){
-  userBids.innerText = bidCount;
+if(listingCount){
+  userListings.innerText = listingCount.listing;
+  listingImg.src = `${listingCount.media}`
 } else {
-  userBids.innerText = "0"
+  userListings.innerText = "0"
+  currentListings.innerHTML ="";
+  currentListings.innerHTML ="No current listings";
 }
 
 }
