@@ -5,8 +5,7 @@
 
 
 export function listingTemplate(listingData){
-  const { title, media, author, id, endsAt, bids } = listingData;
-  //const { name, avatar } = author;
+  const { title, media, id, endsAt, bids } = listingData;
 
   //Listing card
   const card = document.createElement("a");

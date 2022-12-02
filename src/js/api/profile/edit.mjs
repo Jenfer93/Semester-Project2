@@ -24,8 +24,6 @@ const method = "put";
     body: JSON.stringify(profileData)
     
   })
-
-  //const profile = await response.json();
   
   return await response.json();
 }

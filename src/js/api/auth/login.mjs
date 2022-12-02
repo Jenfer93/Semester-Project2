@@ -19,12 +19,13 @@ export async function login(profile) {
     body: JSON.stringify(profile) 
   })
 
-  const {accessToken, avatar, ...user } = await response.json() 
+  const {accessToken, avatar, _count, ...user } = await response.json() 
 
  
   storage.save("token", accessToken)
   storage.save("avatar", avatar)
   storage.save("profile", user)
+  storage.save("count", _count)
 
   if(!accessToken){
     alert("Obs, seems like the user is not registered");
