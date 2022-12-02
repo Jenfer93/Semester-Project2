@@ -36,12 +36,41 @@
   </nav>
 </header>
 <main class="flex-shrink-0">
-  <!-- <input type="datetime-local" id="date-picker" class="" /> -->
+  <h1 class="text-center m-5">Make a listing</h1>
+  <form id="createListing" class="m-auto mt-4 list">
+    <div class="form-group mb-3">
+      <label for="">Title</label>
+      <input class="form-control bg-secondary text-light" type="text" name="title" placeholder="Title" required/>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="">Body</label>
+      <textarea class="form-control bg-secondary text-light" name="body"  required> </textarea>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="">Tags</label>
+      <input class="form-control bg-secondary text-light" type="text" name="tags" placeholder="Tags"/>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="">Media</label>
+      <input class="form-control bg-secondary text-light" type="url" name="media" placeholder="Url"/>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="">Listing ends at</label>
+      <input class="form-control bg-secondary text-light" type="date" id="date-picker" name="endsAt" required/> 
+    </div>
+    
+    <button class="btn btn-success mb-5">Create post</button>
+  </form>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
     <p class="text-center text-light">© 2022 BidOnMe</p>
   </footer>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/src/js/index.mjs"></script>
 </body>
 </html>
