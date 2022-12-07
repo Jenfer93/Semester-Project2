@@ -6,7 +6,8 @@ import * as templates from "../../templates/item.mjs";
 import { isLoggedIn } from "../state.mjs";
 
 const action = "/listings";
-const author = "?_seller=true&_bids=true";
+const author = "?_seller=true&_bids=true&_active=true&sort=created";
+const sorted = "&sort=title&sortOrder=desc";
 const moreListings = "&limit=500";
 
 /**
