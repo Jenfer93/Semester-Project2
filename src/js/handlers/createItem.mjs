@@ -20,12 +20,12 @@ export function createListingListener() {
         }
        
         //send it to API
-        createListing(post)
-        if (post){
-        location.href = "/";
-      } else {
-        console.log("error");
-      }
+        createListing(post).then(console.log(post))
+      //   if (post){
+      //   location.href = "/";
+      // } else {
+      //   console.log("error");
+      // }
     })
   }
 };

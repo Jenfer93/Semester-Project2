@@ -20,13 +20,9 @@ export function listingTemplate(listingData){
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
   cardMedia.classList = "w-75 m-auto align-self-center";
-  cardMedia.src = "https://picsum.photos/id/136/367/267";
-
- if (media){
-  cardMedia.src = media[0];
-  cardMedia.alt = "Listing Img";
-  
-  } 
+  cardMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
+  const image = media.length ? media[0]: "https://picsum.photos/id/20/367/267";
+  cardMedia.src = image; 
 
   const listingTitle = document.createElement("h4");
   listingTitle.classList = "m-auto text-center mt-2";
@@ -94,6 +90,7 @@ export function listingTemplate(listingData){
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
   cardMedia.classList = "w-75 m-auto align-self-center";
+  cardMedia.onerror = "https://picsum.photos/id/20/367/267";
   cardMedia.src = listingData.media;
 
   const listingTitle = document.createElement("h4");
