@@ -48,6 +48,7 @@ userCredits.innerText = credits;
 //Users listings 
 const listings = await readProfile(name + "/listings") 
 
+
   if (listings.length === null) {
     userListings.innerHTML = "0";
   } else {
@@ -60,7 +61,7 @@ const listings = await readProfile(name + "/listings")
             <a href="/pages/items/item.html?id=${listings[i].id}" class="small-card bg-secondary card m-3">
             <img class="mb-2 card-img-top" src="${listings[i].media[0]}" alt="listings picture">
             <div class="d-flex justify-content-between p-3">
-            <button class="btn btn-small btn-success"> ${listings[i].bids[0].amount}</button>
+            <button class="btn btn-small btn-success"> ${listings[i].bids[listings[i].bids.length-1].amount}</button>
             <span>Closes at: ${endsAt}</span>
             </div>
             </a>`
