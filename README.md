@@ -2,6 +2,12 @@
 
 A auction house - created with the NorOff Api
 
+To get started with this site, please run the
+
+```
+npm run build
+```
+
 Login information:
 
 name: Jenny_feragen
