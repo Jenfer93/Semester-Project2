@@ -3,7 +3,7 @@ import { tokenAuth } from "../tokenFetch.mjs";
 import { load } from "../../storage/index.mjs";
 
 const action = "/profiles";
-const author = "?_seller=true&_count=true";
+const author = "?_seller=true&_count=true&_bids=true";
 
 /**
  * function to auth the user with the tokenFetch
@@ -25,33 +25,49 @@ export async function readProfile (name) {
   return await response.json();
 }
 
+/**
+ * Function to show the profile and the users information
+ * 
+ */
 
 export async function profileInfo() {
 const userName = document.querySelector("#userName");
 const userAvatar = document.querySelector(".avatar");
 const userCredits = document.querySelector(".credits");
 const userListings = document.querySelector(".nrListings");
-const listingImg = document.querySelector(".listingImg");
-const currentListings = document.querySelector("#currentListings");
+const listingsContainer = document.querySelector(".listings");
 
-const userData = load("profile");
-const { name, credits} = userData;
+const { name, credits} = load("profile");
 const avatar = load("avatar");
-const listingCount = load("_count");
 
+//User information 
 userName.innerText = name; 
 userAvatar.src = avatar; 
 userCredits.innerText = credits;
-if(listingCount){
-  userListings.innerText = listingCount.listing;
-  listingImg.src = `${listingCount.media}`
-} else {
-  userListings.innerText = "0"
-  currentListings.innerHTML ="";
-  currentListings.innerHTML ="No current listings";
-}
 
-}
+//Users listings 
+const listings = await readProfile(name + "/listings") 
+
+  if (listings.length === null) {
+    userListings.innerHTML = "0";
+  } else {
+    let sum = 0; 
+      for (let i = 0; i < listings.length; i++) {
+        userListings.innerHTML = sum = listings.length;
+        let endsAt = new Date(listings[i].endsAt).toLocaleDateString()
+        listingsContainer.innerHTML +=   
+          `
+            <a href="/pages/items/item.html?id=${listings[i].id}" class="small-card bg-secondary card m-3">
+            <img class="mb-2 card-img-top" src="${listings[i].media[0]}" alt="listings picture">
+            <div class="d-flex justify-content-between p-3">
+            <button class="btn btn-small btn-success"> ${listings[i].bids[0].amount}</button>
+            <span>Closes at: ${endsAt}</span>
+            </div>
+            </a>`
+      }
+    }
+  }
+
 
 /**
  * Function to redirect a user to their edit profile page 
