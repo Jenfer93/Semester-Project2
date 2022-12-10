@@ -5,6 +5,7 @@ import { tokenAuth } from "../tokenFetch.mjs";
 import * as templates from "../../templates/item.mjs";
 import { isLoggedIn } from "../state.mjs";
 
+
 const action = "/listings";
 const author = "?_seller=true&_bids=true&_active=true&sort=created";
 const sorted = "&sort=title&sortOrder=desc";

@@ -8,7 +8,7 @@
   <title>BidOnMe | Item</title>
   <link rel="stylesheet" href="/dist/css/styles.css">
 </head>
-<body class="bg-dark text-light d-flex flex-column h-100">
+<body class="bg-dark text-light d-flex flex-column min-vh-100">
 <header>
   <nav class="navbar sticky-top navbar-expand-lg bg-secondary">
     <div class="container-fluid">
@@ -39,6 +39,14 @@
   <h1 class="pageHeader"></h1>
   <div id="container" class="m-auto">
  
+  </div>
+
+  <div class="bidContainer m-auto mb-4 d-inline">
+    <h3 class="text-center">Make a bid</h3>
+    <form class="form m-auto mt-3" id="bidForm">
+      <input type="number" name="amount" id="bid-input" class="form-control bg-secondary text-light mb-2">
+      <button class="btn btn-success btn-small">Place bid</button>
+    </form>
   </div>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">

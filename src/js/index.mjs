@@ -13,6 +13,7 @@ if (path === "/pages/auth/login.html") {
   listeners.logoutListener();
 } else if (path === "/pages/items/item.html"){
   listings.showListing();
+  listeners.placeBidListener()
   listeners.logoutListener();
 } else if (path === "/pages/user/profile.html"){
   profile.profileInfo();

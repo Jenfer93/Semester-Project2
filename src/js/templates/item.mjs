@@ -25,7 +25,7 @@ export function listingTemplate(listingData){
   cardMedia.src = image; 
 
   const listingTitle = document.createElement("h4");
-  listingTitle.classList = "m-auto text-center mt-2";
+  listingTitle.classList = "m-auto text-center mt-2 text-wrap text-break";
   listingTitle.innerText = title;
   cardHeading.append(cardMedia, listingTitle); 
 
@@ -94,7 +94,7 @@ export function listingTemplate(listingData){
   cardMedia.src = listingData.media;
 
   const listingTitle = document.createElement("h4");
-  listingTitle.classList = "m-auto text-center mt-2";
+  listingTitle.classList = "m-auto text-center mt-2 text-wrap text-break";
   listingTitle.innerText = listingData.title;
   cardHeading.append(cardMedia, listingTitle); 
 
@@ -137,7 +137,7 @@ export function singleListingTemplate(listingData){
 
   const pageHeader = document.querySelector(".pageHeader");
   pageHeader.innerText = title;
-  pageHeader.classList = "m-auto text-center mt-5"
+  pageHeader.classList = "m-auto text-center mt-5 text-wrap text-break"
    
   const listingContainer = document.createElement("div");
   listingContainer.classList = "list d-flex flex-wrap m-auto p-3 justify-content-around";
@@ -156,6 +156,8 @@ export function singleListingTemplate(listingData){
     listingMedia.classList = "w-100 pb-2";
     imgContainer.append(listingMedia)
     }
+} else {
+  listingMedia.src = "https://picsum.photos/id/20/367/267";
 }
 
   const listingEnds = document.createElement("p");
@@ -190,17 +192,20 @@ export function singleListingTemplate(listingData){
   }
   }
 
-  const bidH3 = document.createElement ("h3");
-  bidH3.innerText = "Make a bid";
+  // const bidForm = document.createElement ("form");
+  // bidForm.classList = "form m-auto mt-3"
+  // bidForm.id= "bidForm";
 
-  const bidInput = document.createElement ("input");
-  bidInput.classList = "form-control bg-secondary text-light mb-2"
+  // const bidInput = document.createElement ("input");
+  // bidInput.classList = "form-control bg-secondary text-light mb-2"
 
-  const placeBidButton = document.createElement("button");
-  placeBidButton.classList = "btn btn-success btn-small";
-  placeBidButton.innerText = "Place bid";
+  // const placeBidButton = document.createElement("button");
+  // placeBidButton.classList = "btn btn-success btn-small";
+  // placeBidButton.innerText = "Place bid";
 
-  listingInformation.append(listingDescription, lastBid, bidH3, bidInput, placeBidButton)
+  // bidForm.append(bidInput, placeBidButton)
+
+  listingInformation.append(listingDescription, lastBid)
 
   listingContainer.append(containerImgEnds, listingInformation);
 
