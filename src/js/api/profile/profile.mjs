@@ -3,7 +3,7 @@ import { tokenAuth } from "../tokenFetch.mjs";
 import { load } from "../../storage/index.mjs";
 
 const action = "/profiles";
-const author = "?_seller=true&_count=true&_bids=true";
+const author = "?_seller=true&_count=true&_bids=true&_listings=true";
 
 /**
  * function to auth the user with the tokenFetch
@@ -61,7 +61,8 @@ if (bids.length === 0) {
       break
     }
     userBids.innerHTML += 
-    `<a href="/pages/items/item.html?id=${bids[i].id}" class="btn btn-success m-2">
+    `<a href="/pages/items/item.html?id=${bids[i].listing.id}" class="btn btn-success m-2">
+      ${bids[i].listing.title} <br>
       Bid made: $${bids[i].amount} </br>
       Ends: ${new Date(bids[i].created).toLocaleDateString()}
     </a>
