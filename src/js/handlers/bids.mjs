@@ -7,6 +7,7 @@ export function placeBidListener(id, amount){
   const params = new URLSearchParams(queryString);
   let bidId = params.get("id");
 
+
   if(form) {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -15,6 +16,7 @@ export function placeBidListener(id, amount){
 
 
       placeBid(bidId, Number(bid)); 
+      
       location.reload();
     }) 
   }

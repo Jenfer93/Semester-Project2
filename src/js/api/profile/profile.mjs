@@ -22,7 +22,12 @@ export async function readProfile (name) {
 
   const response = await tokenAuth (profileURL)
 
-  return await response.json();
+  if(response.ok){
+    return await response.json();
+  }
+
+  throw new Error(response);
+  
 }
 
 /**
@@ -35,15 +40,34 @@ const userName = document.querySelector("#userName");
 const userAvatar = document.querySelector(".avatar");
 const userCredits = document.querySelector(".credits");
 const userListings = document.querySelector(".nrListings");
+const userBids = document.querySelector(".userBids");
 const listingsContainer = document.querySelector(".listings");
 
-const { name, credits} = load("profile");
+const { name, credits } = load("profile");
 const avatar = load("avatar");
 
 //User information 
 userName.innerText = name; 
 userAvatar.src = avatar; 
 userCredits.innerText = credits;
+
+//Users bids
+const bids = await readProfile(name + "/bids");
+if (bids.length === 0) {
+  userBids.innerText = "User has no bids"
+} else {
+  for (let i = 0; i < bids.length; i++){
+    if(i === 3){
+      break
+    }
+    userBids.innerHTML += 
+    `<a href="/pages/items/item.html?id=${bids[i].id}" class="btn btn-success m-2">
+      Bid made: $${bids[i].amount} </br>
+      Ends: ${new Date(bids[i].created).toLocaleDateString()}
+    </a>
+    `
+  }
+}
 
 //Users listings 
 const listings = await readProfile(name + "/listings") 
@@ -61,13 +85,18 @@ const listings = await readProfile(name + "/listings")
             <a href="/pages/items/item.html?id=${listings[i].id}" class="small-card bg-secondary card m-3">
             <img class="mb-2 card-img-top" src="${listings[i].media[0]}" alt="listings picture">
             <div class="d-flex justify-content-between p-3">
-            <button class="btn btn-small btn-success"> ${listings[i].bids[listings[i].bids.length-1].amount}</button>
-            <span>Closes at: ${endsAt}</span>
+              <div class="d-flex flex-column">
+              <span>Current bid:</span>
+              <button class="btn btn-small btn-success w-70"> $${listings[i].bids[listings[i].bids.length-1].amount}</button>
+              </div>
+            <span>Closes at: <br> ${endsAt}</span>
             </div>
             </a>`
       }
     }
   }
+
+
 
 
 /**

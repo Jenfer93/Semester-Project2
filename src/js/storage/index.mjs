@@ -31,3 +31,10 @@ return JSON.parse(value);
 export function remove(key) {
   localStorage.removeItem(key);
 };
+
+
+export function update(key, property, value) {
+  const obj = storage.load(key);
+  obj[property] = value;
+  storage.save(key, obj);
+}
