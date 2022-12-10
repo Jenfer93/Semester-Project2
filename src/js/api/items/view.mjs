@@ -4,6 +4,7 @@ import { tokenAuth } from "../tokenFetch.mjs";
 
 import * as templates from "../../templates/item.mjs";
 import { isLoggedIn } from "../state.mjs";
+import { load } from "../../storage/index.mjs";
 
 
 const action = "/listings";
@@ -46,8 +47,10 @@ const sorted = "&sort=title&sortOrder=desc";
  * Function that shows the listings on the homepage
  */
 
+const token = load("token");
+
  export async function showListings() {
-  if (!isLoggedIn){
+  if (!token){
     const listings = await viewListings();
     const container = document.querySelector("#showListings");
     templates.renderUnAuthListingTemplates(listings, container);

@@ -26,7 +26,12 @@ export function listingTemplate(listingData){
 
   const listingTitle = document.createElement("h4");
   listingTitle.classList = "m-auto text-center mt-2 text-wrap text-break";
-  listingTitle.innerText = title;
+  if (!title){
+    listingTitle.innerText = "Missing Title";
+  } else {
+    listingTitle.innerText = title;
+  }
+  
   cardHeading.append(cardMedia, listingTitle); 
 
 
@@ -90,8 +95,9 @@ export function listingTemplate(listingData){
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
   cardMedia.classList = "w-75 m-auto align-self-center";
-  cardMedia.onerror = "https://picsum.photos/id/20/367/267";
-  cardMedia.src = listingData.media;
+  cardMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
+  const image = listingData.media.length ? listingData.media[0]: "https://picsum.photos/id/20/367/267";
+  cardMedia.src = image; 
 
   const listingTitle = document.createElement("h4");
   listingTitle.classList = "m-auto text-center mt-2 text-wrap text-break";
@@ -105,8 +111,8 @@ export function listingTemplate(listingData){
 
   //the content in the second half of card
   const loginButton = document.createElement("button");
-  lastBid.classList = "btn btn-warning";
-  lastBid.innerText = "Log in to view more";
+  loginButton.classList = "btn btn-warning";
+  loginButton.innerText = "Log in to view more";
 
   cardBottom.append(loginButton);
 
