@@ -32,7 +32,7 @@ export function listingTemplate(listingData){
 
   //Card bottom 
   const cardBottom = document.createElement("div");
-  cardBottom.classList = "d-flex justify-content-around";
+  cardBottom.classList = "d-flex justify-content-around mt-3";
 
   //the content in the second half of card
   const lastBid = document.createElement("button");
@@ -42,7 +42,7 @@ export function listingTemplate(listingData){
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
     lastBid.classList = "btn btn-success btn-small";
-    lastBid.innerText = bids[i].amount;
+    lastBid.innerText = `$ ${bids[i].amount}`;
   }
   }
 
