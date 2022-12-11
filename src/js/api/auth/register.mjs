@@ -22,5 +22,8 @@ export async function register(profile) {
   })
 
   const results = await response.json()  
-  return results  
+  
+    location.href="/pages/auth/login.html"
+    return results  
+ 
 };
