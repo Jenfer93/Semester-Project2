@@ -12,7 +12,7 @@
 <header>
   <nav class="navbar sticky-top navbar-expand-lg bg-secondary">
     <div class="container-fluid">
-      <a class="navbar-brand text-light" href="/index.html">BidOnMe</a>
+      <a class="navbar-brand text-light" href="/">BidOnMe</a>
       <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,16 +22,13 @@
             <a class="nav-link text-light active" aria-current="page" href="/pages/user/profile.html">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/index.html">All Listings</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link text-light" href="/pages/items/createitem.html">Create Listing</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/pages/user/editavatar.html">Edit Avatar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/pages/auth/login.html">Logout</a>
+            <a class="nav-link text-light logout" href="/pages/auth/login.html">Logout</a>
           </li>
         </ul>
       </div>
@@ -39,12 +36,38 @@
   </nav>
 </header>
 <main class="flex-shrink-0">
+<div class="container mt-4 d-flex justify-content-around flex-wrap">
+  <div class=" d-flex flex-column m-4">
+    <h1 id="userName" class="mb-5 "></h1>
+    <img class="avatar mb-2" src="#" alt="Profile picture">
+    <a href="#" class="editAvatar text-decoration-underline">Change avatar</a>
+  </div>
+  <div class="m-4 d-flex flex-column justify-content-center">
+    <button class="btn btn-success" href="../items/createitem.html">List an Item</button>
+    <div class="bg-secondary p-3 m-4 card">
+      <h3 class="mb-3"> Credits: <span class="credits"></span></h3>
+      <h3> Listings: <span class="nrListings"></span></h3>
+      <div class="showBids">
+        <h3>User bids:</h3>
+        <div class="userBids"></div>
+      </div>
+    </div>
+  </div> 
+</div>
+<div class="container list d-flex flex-column">
+  <div class="current">
+    <h4>Current Listings</h4>
+    <div class="d-flex flex-row flex-wrap justify-content-between m-4 listings p-2">
 
+    </div>
+  </div>
+</div>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
     <p class="text-center text-light">© 2022 BidOnMe</p>
   </footer>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/src/js/index.mjs"></script>
 </body>
 </html>

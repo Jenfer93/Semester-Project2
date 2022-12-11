@@ -8,11 +8,11 @@
   <title>BidOnMe | Item</title>
   <link rel="stylesheet" href="/dist/css/styles.css">
 </head>
-<body class="bg-dark text-light d-flex flex-column h-100">
+<body class="bg-dark text-light d-flex flex-column min-vh-100">
 <header>
   <nav class="navbar sticky-top navbar-expand-lg bg-secondary">
     <div class="container-fluid">
-      <a class="navbar-brand text-light" href="/index.html">BidOnMe</a>
+      <a class="navbar-brand text-light" href="/">BidOnMe</a>
       <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,16 +22,13 @@
             <a class="nav-link text-light" href="/pages/user/profile.html">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/index.html">All Listings</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link text-light" href="/pages/items/createitem.html">Create Listing</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/pages/user/editavatar.html">Edit Avatar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/pages/auth/login.html">Logout</a>
+            <a class="nav-link text-light logout" href="/pages/auth/login.html">Logout</a>
           </li>
         </ul>
       </div>
@@ -39,12 +36,23 @@
   </nav>
 </header>
 <main class="flex-shrink-0">
-
+  <h1 class="pageHeader"></h1>
+  <div id="container" class="m-auto">
+  
+  </div>
+  <div class="bidContainer m-auto mb-4 d-inline">
+    <h3 class="text-center">Make a bid</h3>
+    <form class="form m-auto mt-3" id="bidForm">
+      <input type="number" name="amount" id="bid-input" class="form-control bg-secondary text-light mb-2">
+      <button class="btn btn-success btn-small">Place bid</button>
+    </form>
+  </div>
 </main>
   <footer class="footer py-3 mt-auto bg-secondary">
     <p class="text-center text-light border-bottom pb-2">Jenny Feragen</p>
     <p class="text-center text-light">© 2022 BidOnMe</p>
   </footer>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="/src/js/index.mjs"></script>
 </body>
 </html>
