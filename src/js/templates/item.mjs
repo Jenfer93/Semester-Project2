@@ -107,7 +107,7 @@ export function listingTemplate(listingData){
 
   //Card bottom 
   const cardBottom = document.createElement("div");
-  cardBottom.classList = "d-flex justify-content-between";
+  cardBottom.classList = "d-flex justify-content-between mt-3";
 
   //the content in the second half of card
   const loginButton = document.createElement("button");
@@ -151,26 +151,70 @@ export function singleListingTemplate(listingData){
   const containerImgEnds = document.createElement("div");
   containerImgEnds.classList = "d-flex flex-column justify-content-center"
 
-  const imgContainer = document.createElement("div");
-  imgContainer.classList = "itemImage m-auto d-flex flex-column"
-  
+  const carouselContainer = document.createElement("div");
+  carouselContainer.classList = "itemImage m-auto carousel slide"
+  carouselContainer.id = "carousel"
+  carouselContainer.dataset.bsRide = "carousel"
 
-  if(media){
-    for(let i = 0; i < media.length; i++){
+  const carouselInner = document.createElement("div");
+  carouselInner.classList="carousel-inner"; 
+
+  if(!media) {
     const listingMedia = document.createElement ("img");
-    listingMedia.src = media[i];
-    listingMedia.classList = "w-100 pb-2";
-    imgContainer.append(listingMedia)
+    listingMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
+    const image = media.length ? media[i]: "https://picsum.photos/id/20/367/267";
+    listingMedia.src = image;
+    carouselItem.append(listingMedia)
+  } else {
+    for(let i = 0; i < media.length; i++){
+      const carouselItem = document.createElement("div")
+      carouselItem.classList="carousel-item active";
+      const listingMedia = document.createElement ("img");
+      listingMedia.src = media[i];
+      listingMedia.classList = "d-block w-100 pb-2";
+      carouselItem.append(listingMedia)
+      carouselInner.append(carouselItem)
     }
-} else {
-  listingMedia.src = "https://picsum.photos/id/20/367/267";
-}
+  }
+
+  const slideButtonLeft = document.createElement("button");
+  slideButtonLeft.classList="carousel-control-prev";
+  slideButtonLeft.type="button";
+  slideButtonLeft.dataset.bsTarget ="#carousel"
+  slideButtonLeft.setAttribute("data-bs-slide", "prev")
+
+  const buttonLIcon = document.createElement("span");
+  buttonLIcon.classList="carousel-control-prev-icon";
+  buttonLIcon.ariaHidden="true";
+
+  const buttonLHidden = document.createElement("span");
+  buttonLHidden.classList="visually-hidden";
+  buttonLHidden.innerText="Previous";
+
+  const slideButtonRight = document.createElement("button");
+  slideButtonRight.classList="carousel-control-next";
+  slideButtonRight.type="button";
+  slideButtonRight.dataset.bsTarget ="#carousel"
+  slideButtonRight.setAttribute("data-bs-slide", "next")
+
+  const buttonRIcon = document.createElement("span");
+  buttonRIcon.classList="carousel-control-next-icon";
+  buttonRIcon.ariaHidden="true";
+
+  const buttonRHidden = document.createElement("span");
+  buttonRHidden.classList="visually-hidden";
+  buttonRHidden.innerText="Next";
+
+  slideButtonLeft.append(buttonLIcon, buttonLHidden)
+  slideButtonRight.append(buttonRIcon, buttonRHidden)
+  
+  carouselContainer.append(carouselInner, slideButtonLeft, slideButtonRight)
 
   const listingEnds = document.createElement("p");
   listingEnds.innerHTML = "Closes at:" + `<br>` + new Date(endsAt).toLocaleDateString();
   listingEnds.classList = "m-auto text-uppercase"
 
-  containerImgEnds.append(imgContainer, listingEnds)
+  containerImgEnds.append(carouselContainer, listingEnds)
 
   const listingInformation = document.createElement ("div");
   listingInformation.classList = "p-3 m-auto";
@@ -183,33 +227,17 @@ export function singleListingTemplate(listingData){
   descriptionText.innerText = description;
 
   listingDescription.append(descriptionText);
-  
-  const bidH2 = document.createElement ("h2");
-  bidH2.innerText = "Current Bid";
-
+ 
   const lastBid = document.createElement("button");
   lastBid.classList = "btn btn-success btn-small";
     lastBid.innerText = "Start biding"
   
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
-    lastBid.classList = "btn btn-success btn-small";
-    lastBid.innerText = bids[i].amount;
+    lastBid.classList = "btn btn-success btn-small p-2";
+    lastBid.innerText =`Last bid: $${bids[i].amount}`;
   }
   }
-
-  // const bidForm = document.createElement ("form");
-  // bidForm.classList = "form m-auto mt-3"
-  // bidForm.id= "bidForm";
-
-  // const bidInput = document.createElement ("input");
-  // bidInput.classList = "form-control bg-secondary text-light mb-2"
-
-  // const placeBidButton = document.createElement("button");
-  // placeBidButton.classList = "btn btn-success btn-small";
-  // placeBidButton.innerText = "Place bid";
-
-  // bidForm.append(bidInput, placeBidButton)
 
   listingInformation.append(listingDescription, lastBid)
 

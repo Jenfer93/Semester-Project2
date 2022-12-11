@@ -3,7 +3,6 @@ import { API_URL } from "../constants.mjs";
 import { tokenAuth } from "../tokenFetch.mjs";
 
 import * as templates from "../../templates/item.mjs";
-import { isLoggedIn } from "../state.mjs";
 import { load } from "../../storage/index.mjs";
 
 
@@ -76,4 +75,3 @@ const token = load("token");
   } 
 
 
-  
