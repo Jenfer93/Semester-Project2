@@ -1,6 +1,7 @@
 import * as listeners from "../js/handlers/index.mjs";
 import * as listings from "../js/api/items/index.mjs";
-import * as profile from "../js/api/profile/index.mjs"
+import * as profile from "../js/api/profile/index.mjs";
+import * as state from "../js/api/state.mjs";
 
 const path = location.pathname;
 
@@ -11,6 +12,7 @@ if (path === "/pages/auth/login.html") {
 } else if (path === "/"){
   listings.showListings();
   listeners.logoutListener();
+  state.navBarState()
 } else if (path === "/pages/items/item.html"){
   listings.showListing();
   listeners.placeBidListener()
@@ -26,3 +28,5 @@ if (path === "/pages/auth/login.html") {
   listeners.createListingListener();
   listeners.logoutListener();
 }
+
+
