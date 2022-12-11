@@ -25,5 +25,4 @@ export async function register(profile) {
   
     location.href="/pages/auth/login.html"
     return results  
- 
 };

@@ -11,10 +11,17 @@ export function navBarState() {
   const createNav = document.querySelector(".createNav");
   const editNav = document.querySelector(".editNav");
   const logout = document.querySelector(".logout");
-  const loginNav = document.querySelector(".loginNav");
-  const registerNav = document.querySelector(".registerNav");
+  const loginNav = document.querySelector("#loginNav");
+  const registerNav = document.querySelector("#registerNav");
+  
   if(token) {
-    loginNav.classList.add ="d-none";
+    loginNav.classList ="visually-hidden";
+    registerNav.classList ="visually-hidden";
+  } else {
+    profileNav.classList="visually-hidden";
+    createNav.classList="visually-hidden";
+    editNav.classList="visually-hidden";
+    logout.classList="visually-hidden";
   }
 
   return 
