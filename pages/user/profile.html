@@ -8,7 +8,7 @@
   <title>BidOnMe | Profile</title>
   <link rel="stylesheet" href="/dist/css/styles.css">
 </head>
-<body class="bg-dark text-light d-flex flex-column h-100">
+<body class="bg-dark text-light d-flex flex-column min-h-100">
 <header>
   <nav class="navbar sticky-top navbar-expand-lg bg-secondary">
     <div class="container-fluid">
@@ -37,18 +37,18 @@
 </header>
 <main class="flex-shrink-0">
 <div class="container mt-4 d-flex justify-content-around flex-wrap">
-  <div class=" d-flex flex-column m-4">
+  <div class="d-flex flex-column m-3 card bg-primary">
     <h1 id="userName" class="mb-5 "></h1>
     <img class="avatar mb-2" src="#" alt="Profile picture">
     <a href="#" class="editAvatar text-decoration-underline">Change avatar</a>
   </div>
   <div class="m-4 d-flex flex-column justify-content-center">
-    <button class="btn btn-success" href="../items/createitem.html">List an Item</button>
+    <button class="btn btn-success w-75 align-self-center" href="../items/createitem.html">List an Item</button>
     <div class="bg-secondary p-3 m-4 card">
       <h3 class="mb-3"> Credits: <span class="credits"></span></h3>
       <h3> Listings: <span class="nrListings"></span></h3>
       <div class="showBids">
-        <h3>User bids:</h3>
+        <h3>Users bids:</h3>
         <div class="userBids"></div>
       </div>
     </div>
