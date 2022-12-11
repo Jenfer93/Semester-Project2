@@ -12,7 +12,8 @@ if (path === "/pages/auth/login.html") {
 } else if (path === "/"){
   listings.showListings();
   listeners.logoutListener();
-  state.navBarState()
+  state.navBarState();
+  listings.searchListings();
 } else if (path === "/pages/items/item.html"){
   listings.showListing();
   listeners.placeBidListener()

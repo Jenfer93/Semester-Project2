@@ -74,3 +74,6 @@ const token = load("token");
    const singleListingContainer = document.querySelector("#container");
    templates.renderListingTemplate(listing, singleListingContainer)
   } 
+
+
+  
