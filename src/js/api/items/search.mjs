@@ -1,5 +1,6 @@
 import { viewListings } from "./view.mjs";
-import { renderListingTemplates } from "../../templates/item.mjs";
+import { renderListingTemplates, renderUnAuthListingTemplates } from "../../templates/item.mjs";
+import { load } from "../../storage/index.mjs";
 
 export async function searchListings () {
   try {
@@ -19,7 +20,12 @@ export async function searchListings () {
         }
       })
       container.innerHTML = ""; 
-      renderListingTemplates(searchedListings, container)
+      const token = load("token");
+      if(!token) {
+        renderUnAuthListingTemplates(searchedListings, container)
+      } else{
+        renderListingTemplates(searchedListings, container)
+      }
     }) 
   } catch (error) {
     container.innerHTML = "There is no listings that match this search"
