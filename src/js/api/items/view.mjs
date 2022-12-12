@@ -70,6 +70,20 @@ const token = load("token");
     const id = params.get("id");
 
    const listing = await viewListing(id); 
+   const seller = listing.seller.name;
+   const {name} = load("profile");
+   const bidContainer = document.querySelector("#bidContainer");
+   if(seller === name) {
+     console.log("Match")
+    //  bidContainer.innerHTML = `
+    //  <div class="d-flex justify-content-evenly">
+    //  <button class="btn btn-success" href="/pages/items/createItem.html">Edit</button>
+    //  <button class="btn btn-warning" href="#">Delete</button>
+    //  </div>
+    //  `
+    bidContainer.classList ="visually-hidden"
+   }
+
    const singleListingContainer = document.querySelector("#container");
    templates.renderListingTemplate(listing, singleListingContainer)
   } 

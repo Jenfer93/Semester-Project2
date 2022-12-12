@@ -16,7 +16,7 @@ if (path === "/pages/auth/login.html") {
   listings.searchListings();
 } else if (path === "/pages/items/item.html"){
   listings.showListing();
-  listeners.placeBidListener()
+  listeners.placeBidListener();
   listeners.logoutListener();
 } else if (path === "/pages/user/profile.html"){
   profile.profileInfo();
