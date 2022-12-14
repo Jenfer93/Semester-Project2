@@ -111,7 +111,7 @@ export function listingTemplate(listingData){
 
   //the content in the second half of card
   const loginButton = document.createElement("button");
-  loginButton.classList = "btn btn-warning";
+  loginButton.classList = "btn btn-warning text-underline";
   loginButton.innerText = "Log in to view more";
 
   cardBottom.append(loginButton);

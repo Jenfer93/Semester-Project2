@@ -1,4 +1,3 @@
-import { viewListing } from "./items/view.mjs";
 import { load } from "../storage/index.mjs";
 
 export const isLoggedIn = () => Boolean(load("token"));
