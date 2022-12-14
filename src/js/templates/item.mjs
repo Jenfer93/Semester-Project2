@@ -46,6 +46,9 @@ export function listingTemplate(listingData){
   
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
+      if(bids.length > 1) {
+        bids.sort((firstBid, secondBid) => firstBid.amount - secondBid.amount);
+      }
     lastBid.classList = "btn btn-success btn-small";
     lastBid.innerText = `$ ${bids[i].amount}`;
   }
@@ -237,6 +240,9 @@ export function singleListingTemplate(listingData){
   
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
+    if(bids.length > 1) {
+      bids.sort((firstBid, secondBid) => firstBid.amount - secondBid.amount);
+    }
     lastBid.classList = "btn btn-success btn-small p-2";
     lastBid.innerText =`Last bid: $${bids[i].amount}`;
   }
