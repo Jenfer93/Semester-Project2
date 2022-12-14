@@ -22,7 +22,11 @@ export async function register(profile) {
   })
 
   const results = await response.json()  
-  
+  if (response.ok){
     location.href="/pages/auth/login.html"
-    return results  
+    return results 
+  } else {
+    alert(response.error);
+  }
+     
 };

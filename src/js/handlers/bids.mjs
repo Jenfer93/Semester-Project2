@@ -16,8 +16,6 @@ export function placeBidListener(id, amount){
 
 
       placeBid(bidId, Number(bid)); 
-      
-      location.reload();
     }) 
   }
      

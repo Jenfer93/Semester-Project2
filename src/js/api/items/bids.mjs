@@ -19,7 +19,11 @@ export async function placeBid(id, amount) {
 
   if (response.ok) {
     save("profile", user)
+    const bidButton = document.querySelector("#bidButton");
+    bidButton.innerText = "Bid placed";
     return await response.json();
+  } else {
+    alert(response.error)
   }
 
   throw new Error(response);
