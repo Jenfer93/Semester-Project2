@@ -34,7 +34,7 @@ export function remove(key) {
 
 
 export function update(key, property, value) {
-  const obj = storage.load(key);
+  const obj = load(key);
   obj[property] = value;
-  storage.save(key, obj);
+  save(key, obj);
 }

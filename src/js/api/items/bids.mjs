@@ -1,6 +1,7 @@
 import { API_URL } from "../constants.mjs";
 import { tokenAuth } from "../tokenFetch.mjs";
-import { save } from "../../storage/index.mjs";
+import { load, save } from "../../storage/index.mjs";
+import { readProfile } from "../profile/profile.mjs";
 
 const action = "/listings";
 const method = "POST";
@@ -15,13 +16,8 @@ export async function placeBid(id, amount) {
 
   });
 
-  const { user } = await response.json() 
-
   if (response.ok) {
-    save("profile", user)
-    const bidButton = document.querySelector("#bidButton");
-    bidButton.innerText = "Bid placed";
-    return await response.json();
+    return;
   } else {
     alert(response.error)
   }

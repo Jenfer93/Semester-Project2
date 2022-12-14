@@ -46,6 +46,9 @@ export function listingTemplate(listingData){
   
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
+      if(bids.length > 1) {
+        bids.sort((firstBid, secondBid) => firstBid.amount - secondBid.amount);
+      }
     lastBid.classList = "btn btn-success btn-small";
     lastBid.innerText = `$ ${bids[i].amount}`;
   }
@@ -168,7 +171,10 @@ export function singleListingTemplate(listingData){
   } else {
     for(let i = 0; i < media.length; i++){
       const carouselItem = document.createElement("div")
-      carouselItem.classList="carousel-item active";
+      carouselItem.classList="carousel-item";
+      if(media[i] === [0]){
+        carouselItem.classList.add="active"
+      }
       const listingMedia = document.createElement ("img");
       listingMedia.src = media[i];
       listingMedia.classList = "d-block w-100 pb-2";
@@ -234,6 +240,9 @@ export function singleListingTemplate(listingData){
   
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
+    if(bids.length > 1) {
+      bids.sort((firstBid, secondBid) => firstBid.amount - secondBid.amount);
+    }
     lastBid.classList = "btn btn-success btn-small p-2";
     lastBid.innerText =`Last bid: $${bids[i].amount}`;
   }
