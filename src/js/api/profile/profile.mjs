@@ -43,13 +43,14 @@ const userListings = document.querySelector(".nrListings");
 const userBids = document.querySelector(".userBids");
 const listingsContainer = document.querySelector(".listings");
 
-const { name, credits } = load("profile");
+const { name } = load("profile");
 const avatar = load("avatar");
 
+const user = await readProfile(name)
 //User information 
 userName.innerText = name; 
 userAvatar.src = avatar; 
-userCredits.innerText = credits;
+userCredits.innerText = user.credits;
 
 //Users bids
 const bids = await readProfile(name + "/bids");

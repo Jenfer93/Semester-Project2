@@ -168,7 +168,10 @@ export function singleListingTemplate(listingData){
   } else {
     for(let i = 0; i < media.length; i++){
       const carouselItem = document.createElement("div")
-      carouselItem.classList="carousel-item active";
+      carouselItem.classList="carousel-item";
+      if(media[i] === [0]){
+        carouselItem.classList.add="active"
+      }
       const listingMedia = document.createElement ("img");
       listingMedia.src = media[i];
       listingMedia.classList = "d-block w-100 pb-2";
