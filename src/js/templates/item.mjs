@@ -15,14 +15,15 @@ export function listingTemplate(listingData){
  
   //Card Heading
   const cardHeading = document.createElement("div");
-  cardHeading.classList = "m-auto mt-3 d-flex flex-column justify-content-center ";
+  cardHeading.classList = "m-auto mt-3 d-flex flex-column justify-content-center";
   
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
-  cardMedia.classList = "w-75 m-auto align-self-center";
+  cardMedia.classList = "w-100 h-75 m-auto align-self-center";
   cardMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
   const image = media.length ? media[0]: "https://picsum.photos/id/20/367/267";
   cardMedia.src = image; 
+  cardMedia.alt =`Image of ${title}`
 
   const listingTitle = document.createElement("h4");
   listingTitle.classList = "m-auto text-center mt-2 text-wrap text-break";
@@ -97,10 +98,11 @@ export function listingTemplate(listingData){
   
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
-  cardMedia.classList = "w-75 m-auto align-self-center";
+  cardMedia.classList = "w-100 h-75 m-auto align-self-center";
   cardMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
   const image = listingData.media.length ? listingData.media[0]: "https://picsum.photos/id/20/367/267";
   cardMedia.src = image; 
+  cardMedia.alt =`Image of ${listingData.title}`
 
   const listingTitle = document.createElement("h4");
   listingTitle.classList = "m-auto text-center mt-2 text-wrap text-break";
@@ -142,7 +144,7 @@ export function listingTemplate(listingData){
  */
 
 export function singleListingTemplate(listingData){
-  const { id, title, description, endsAt, bids, media } = listingData;
+  const { title, description, endsAt, bids, media } = listingData;
 
   const pageHeader = document.querySelector(".pageHeader");
   pageHeader.innerText = title;
@@ -172,11 +174,13 @@ export function singleListingTemplate(listingData){
     for(let i = 0; i < media.length; i++){
       const carouselItem = document.createElement("div")
       carouselItem.classList="carousel-item";
-      if(media[i] === [0]){
-        carouselItem.classList.add="active"
+      carouselItem.ariaLabel = `slide ${i}`
+      if(carouselItem.ariaLabel === "slide 0"){
+       carouselItem.classList ="carousel-item active"
       }
       const listingMedia = document.createElement ("img");
       listingMedia.src = media[i];
+      listingMedia.alt = `Image of ${title}`;
       listingMedia.classList = "d-block w-100 pb-2";
       carouselItem.append(listingMedia)
       carouselInner.append(carouselItem)
