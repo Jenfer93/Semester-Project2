@@ -17,7 +17,8 @@ export async function placeBid(id, amount) {
   });
 
   if (response.ok) {
-    return;
+    location.reload();
+    return true;
   } else {
     alert(response.error)
   }

@@ -73,16 +73,11 @@ const token = load("token");
    const seller = listing.seller.name;
    const {name} = load("profile");
    const bidContainer = document.querySelector("#bidContainer");
+   const deleteEdit = document.querySelector("#deleteEdit");
    if(seller === name) {
-     console.log("Match")
-    //  bidContainer.innerHTML = `
-    //  <div class="d-flex justify-content-evenly">
-    //  <button class="btn btn-success" href="/pages/items/createItem.html">Edit</button>
-    //  <button class="btn btn-warning" href="#">Delete</button>
-    //  </div>
-    //  `
-    bidContainer.classList ="visually-hidden"
-   }
+      bidContainer.classList.add ("visually-hidden");
+      deleteEdit.classList.remove ("visually-hidden");
+    }
 
    const singleListingContainer = document.querySelector("#container");
    templates.renderListingTemplate(listing, singleListingContainer)
