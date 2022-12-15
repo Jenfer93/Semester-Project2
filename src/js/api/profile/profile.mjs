@@ -88,8 +88,7 @@ const listings = await readProfile(name + "/listings")
             <img class="mb-2 card-img-top" src="${listings[i].media[0]}" alt="listings picture">
             <div class="d-flex justify-content-between p-3">
               <div class="d-flex flex-column">
-              <span>Current bid:</span>
-              <button class="btn btn-small btn-success w-70"> $${listings[i].bids[listings[i].bids.length-1].amount}</button>
+              <h5>${listings[i].title}</h5>
               </div>
             <span>Closes at: <br> ${endsAt}</span>
             </div>
