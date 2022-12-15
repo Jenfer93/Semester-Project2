@@ -18,7 +18,7 @@ if (path === "/pages/auth/login.html") {
   listings.showListing();
   listeners.placeBidListener();
   listeners.logoutListener();
-  //listeners.removeListingListener();
+  listeners.removeListingListener();
 } else if (path === "/pages/user/profile.html"){
   profile.profileInfo();
   profile.editAvatarRedirect();
