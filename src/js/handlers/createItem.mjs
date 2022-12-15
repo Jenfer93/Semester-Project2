@@ -27,14 +27,7 @@ export function createListingListener() {
         }
        
         //send it to API
-        createListing(post).then(console.log(post))
-
-        if (post){
-          setTimeout(1000)
-        location.href = "/";
-      } else {
-        console.log("error");
-      }
+        createListing(post);
     })
   }
 };

@@ -17,6 +17,13 @@ export async function createListing (listData) {
     
   })
 
-  return await response.json();
+  const results = await response.json();
+if (response.ok){
+  location.href="/";
+  return results
+} else {
+  alert(response.error)
+}
+  
 }
 
