@@ -164,12 +164,15 @@ export function singleListingTemplate(listingData){
   const carouselInner = document.createElement("div");
   carouselInner.classList="carousel-inner"; 
 
-  if(!media) {
-    const listingMedia = document.createElement ("img");
+  if(media.length === 0 || !media) {
+    const noImageContainer = document.createElement("div")
+    noImageContainer.classList="carousel-item active";
+    const listingMedia = document.createElement("img");
     listingMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
-    const image = media.length ? media[i]: "https://picsum.photos/id/20/367/267";
+    const image = media.length ? media: "https://picsum.photos/id/20/367/267";
     listingMedia.src = image;
-    carouselItem.append(listingMedia)
+    carouselInner.append(noImageContainer)
+    noImageContainer.append(listingMedia)
   } else {
     for(let i = 0; i < media.length; i++){
       const carouselItem = document.createElement("div")
