@@ -17,7 +17,12 @@ export async function placeBid(id, amount) {
   });
 
   if (response.ok) {
+    const success = document.querySelector("#success-msg")
+    success.classList.remove("visually-hidden")
+    setTimeout(function() {
     location.reload();
+    }, 3000)
+    
     return true;
   } else {
     alert(response.error)

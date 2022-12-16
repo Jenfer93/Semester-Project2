@@ -43,7 +43,7 @@ export function listingTemplate(listingData){
   //the content in the second half of card
   const lastBid = document.createElement("button");
   lastBid.classList = "btn btn-success btn-small";
-    lastBid.innerText = "Start biding"
+    lastBid.innerText = "No bids yet"
   
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
@@ -243,7 +243,7 @@ export function singleListingTemplate(listingData){
  
   const lastBid = document.createElement("button");
   lastBid.classList = "btn btn-success btn-small";
-    lastBid.innerText = "Start biding"
+    lastBid.innerText = "No bids yet"
   
   if(bids) { 
     for (var i = 0; i < bids.length; i++){
