@@ -81,11 +81,21 @@ const listings = await readProfile(name + "/listings")
     let sum = 0; 
       for (let i = 0; i < listings.length; i++) {
         userListings.innerHTML = sum = listings.length;
+        
         let endsAt = new Date(listings[i].endsAt).toLocaleDateString()
+        const image = listings[i].media.length ? `<img 
+        src="${listings[i].media[0]}" class="mb-2 card-img-top"
+        onerror="this.src='/src/image/imageNotFound.jpg';"
+        alt="Image for ${listings[i].title}"
+        />`
+        : `<img src="/src/image/imageNotFound.jpg" 
+        class="mb-2 card-img-top" 
+        alt="Obs, no image found"`;
+
         listingsContainer.innerHTML +=   
           `
             <a href="/pages/items/item.html?id=${listings[i].id}" class="small-card bg-secondary card m-3">
-            <img class="mb-2 card-img-top" src="${listings[i].media[0]}" alt="listings picture">
+            ${image}
             <div class="d-flex justify-content-between p-3">
               <div class="d-flex flex-column">
               <h5>${listings[i].title}</h5>

@@ -20,8 +20,8 @@ export function listingTemplate(listingData){
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
   cardMedia.classList = "w-100 h-75 m-auto align-self-center";
-  cardMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
-  const image = media.length ? media[0]: "https://picsum.photos/id/20/367/267";
+  cardMedia.onerror = 'this.src="/src/image/imageNotFound.jpg"';
+  const image = media.length ? media[0]: "/src/image/imageNotFound.jpg";
   cardMedia.src = image; 
   cardMedia.alt =`Image of ${title}`
 
@@ -99,8 +99,8 @@ export function listingTemplate(listingData){
   //The content of the first half of card 
   const cardMedia = document.createElement("img");
   cardMedia.classList = "w-100 h-75 m-auto align-self-center";
-  cardMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
-  const image = listingData.media.length ? listingData.media[0]: "https://picsum.photos/id/20/367/267";
+  cardMedia.onerror = 'this.src="/src/image/imageNotFound.jpg"';
+  const image = listingData.media.length ? listingData.media[0]: "/src/image/imageNotFound.jpg";
   cardMedia.src = image; 
   cardMedia.alt =`Image of ${listingData.title}`
 
@@ -166,10 +166,10 @@ export function singleListingTemplate(listingData){
 
   if(media.length === 0 || !media) {
     const noImageContainer = document.createElement("div")
-    noImageContainer.classList="carousel-item active";
+    noImageContainer.classList="carousel-item active ";
     const listingMedia = document.createElement("img");
-    listingMedia.onerror = 'this.src="https://picsum.photos/id/20/367/267"';
-    const image = media.length ? media: "https://picsum.photos/id/20/367/267";
+    listingMedia.onerror = 'this.src="/src/image/imageNotFound.jpg"';
+    const image = media.length ? media: "/src/image/imageNotFound.jpg";
     listingMedia.src = image;
     carouselInner.append(noImageContainer)
     noImageContainer.append(listingMedia)
